@@ -1,0 +1,9 @@
+# layout:
+#  - name: Room name
+#  - entity: the postions to show the entitys in the order they should be filled. (12 for each)
+#  - door: the postions of the doors and the direction they should be exited at. [up/right/down/left]
+
+
+name = testRoom
+entity = 1 2
+door = 0 1 up

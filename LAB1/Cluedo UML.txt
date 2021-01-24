@@ -1,0 +1,103 @@
+class Room
+{
+  * -> * GameFixture fixtures;
+  
+  
+  public String getRoomDescription(){
+  String des = "I'm in a room. I see:\n";
+    for (GameFixture fixture : fixtures ){
+    des += fixture.getFullFixtureDescription() + "\n";
+    }
+  return des;
+  }  
+public void playScenario(){
+  TreasureChest fixture = new TreasureChest("A large and heavy treasure chest.");
+  addFixture(fixture);
+  Wardrobe war = new Wardrobe("A Wardrobe");
+  addFixture(war);
+  System.out.println(getRoomDescription());
+  fixture.setOpen(true);
+  war.setLocked(false);
+  System.out.println(getRoomDescription());
+}
+  
+  public static void main(String... args) { 
+new Room().playScenario();
+}
+}
+
+class GameFixture
+{
+  fixtureDescription;
+  
+  String getFullFixtureDescription(){
+    String des = getFixtureDescription();
+    des += "\n" + getExtraFixtureDescription();
+    return des;
+    
+  }
+  
+  String getExtraFixtureDescription(){
+  String des =null;
+    return des ;
+  }
+}
+
+class TreasureChest
+{
+  Boolean open = false;
+isA GameFixture;
+  
+  String getExtraFixtureDescription() {
+    String des = "\n";
+    if (getOpen()){
+    des = " It contains the room key!";
+    }
+    else{
+    des =" It's lid is closed.";
+    }
+    return des;
+  }
+}
+
+class Wardrobe
+{
+  isA GameFixture ;
+  Boolean locked = true;
+  String getExtraFixtureDescription() {
+    String des = "It is " + doorDescription();
+    return des;
+  }
+  private String doorDescription() {
+  String doorDes = null;
+    if (locked){doorDes = "locked";}
+    else {doorDes = "unlocked";}
+    return doorDes;
+  }
+}
+
+//$?[End_of_model]$?
+
+namespace -;
+
+
+class Room
+{
+  position 50 30 109 45;
+  position.association GameFixture:fixtures__Room 28,112 30,0;
+}
+
+class GameFixture
+{
+  position 77 213 194 78;
+}
+
+class TreasureChest
+{
+  position 134 420 246 95;
+}
+
+class Wardrobe
+{
+  position 490 356 109 61;
+}

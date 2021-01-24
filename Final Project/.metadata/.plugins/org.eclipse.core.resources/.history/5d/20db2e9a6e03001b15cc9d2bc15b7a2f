@@ -1,0 +1,212 @@
+package Render;
+
+import Maze.*;
+import Maze.Items.*;
+import Maze.Tiles.*;
+
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.io.File;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * Class to draw and render the game board
+ * @author Daniel Marshall
+ */
+public class MazeRenderer {
+
+    /** This constants tells the renderer how many tiles it needs to display,
+     *  assuming the displayed portion is always a square
+     */
+    public static final int NUMBER_OF_VISIBLE_SQUARES = 9;
+
+    /**
+     * Map to store all the images
+     */
+    private final Map<String, Image> images = new HashMap<String, Image>();
+
+
+    /** column in the tile array of the tile drawn in the top left of the panel
+     * row in the tile array of the tile drawn in the top left of the panel
+     */
+    private int topLeftColumn, topLeftRow;
+
+    /** Height and width of the tile
+     * This gets determined by the redraw method based on how wide and tall the
+     * board panel is, and how many tiles are being displayed
+     */
+    int tileWidth, tileHeight;
+
+    /**
+     * Graphics object associated with the board pane
+     */
+    Graphics graphics;
+
+    /**
+     * Constructor for the MazeRenderer. This loads all the .png files stored in the
+     * assets folder into a hashmap which holds every image so each image can be quickly found and drawn
+     * Note the filenames begin at the project root
+     */
+    public MazeRenderer(Graphics g){
+        this.graphics = g;
+        try{
+            images.put("ExitTile", ImageIO.read(new File("./assets/Tiles/Exit.png")));
+            images.put("FreeTile", ImageIO.read(new File("./assets/Tiles/FreeTile.png")));
+            images.put("InfoField", ImageIO.read(new File("./assets/Tiles/InfoField.png")));
+            images.put("LockedDoorRed", ImageIO.read(new File("./assets/Tiles/LockedDoorRed.png")));
+            images.put("LockedDoorGreen", ImageIO.read(new File("./assets/Tiles/LockedDoorGreen.png")));
+            images.put("LockedDoorBlue", ImageIO.read(new File("./assets/Tiles/LockedDoorBlue.png")));
+            images.put("WallTile", ImageIO.read(new File("./assets/Tiles/WallTile.png")));
+        }catch(IOException e){System.out.println("IO Exception reading tile images");}
+        try{
+            images.put("ExitLock", ImageIO.read(new File("./assets/Items/ExitLock.png")));
+            images.put("BlueKey", ImageIO.read(new File("./assets/Items/KeyBlue.png")));
+            images.put("RedKey", ImageIO.read(new File("./assets/Items/KeyRed.png")));
+            images.put("GreenKey", ImageIO.read(new File("./assets/Items/KeyGreen.png")));
+            images.put("Treasure", ImageIO.read(new File("./assets/Items/Treasure.png")));
+            images.put("Chip", ImageIO.read(new File("./assets/Chip.png")));
+        }catch(IOException e){System.out.println("IO Exception reading item/chip images");}
+    }
+
+
+    /**
+     * This method is the main method in this package.
+     * It uses its inputs, and iterates through every tile in the
+     * array to determine what type of tile to draw, and then checks if it needs to draw any
+     * items on each tile, and then finally draws the man himself, Chip
+     * @param board - the game board
+     * @param width - the width of the board panel
+     * @param height - the height of the board panel
+     */
+    public void redraw(Board board, int width, int height) {
+
+        /* The following if statements check for errant inputs */
+        if(board == null){
+            throw new NullPointerException("Error: redraw was passed a null argument");
+        }
+        if(width<0 || height <0){
+            throw new IllegalArgumentException("Error: width or height was negative");
+        }
+        if(board.getTileArray() == null || board.getChip() == null){
+            throw new NullPointerException("Error: board contained null values (Chip or TileArray");
+        }
+
+        Tile[][] tileArray = board.getTileArray();
+        Chip chip = board.getChip();
+
+        //Calculate how large each tile is
+        this.tileWidth = width / NUMBER_OF_VISIBLE_SQUARES;
+        this.tileHeight = height / NUMBER_OF_VISIBLE_SQUARES;
+
+        centerChip(chip, tileArray);
+
+        /* The most important part of the method, this loops through each tile in the displayed
+         * part of the array and draws each tile
+         */
+        for(int column = 0; column < NUMBER_OF_VISIBLE_SQUARES; column++){
+            for(int row = 0; row < NUMBER_OF_VISIBLE_SQUARES; row++){
+                Tile currentTile = tileArray[this.topLeftColumn+column][this.topLeftRow+row];
+                if(currentTile == null){
+                    throw new NullPointerException("Error: Tile pulled from tile array was null");
+                }
+                drawTile(currentTile, row, column);
+            }
+        }
+    }
+
+
+    /**This method makes sure that if possible, chip is in the center of the screen
+     * If chip is near the edge of the screen, it draws the screen so that chip is
+     * as close to the center of the screen as possible whilst still
+     * displaying a full screen
+     *
+     * @param chip - the object representing Chip
+     * @param tileArray - the array of tiles on the board
+     */
+    private void centerChip(Chip chip, Tile[][] tileArray){
+        if (chip.getCol() - 4 < 0) {
+            this.topLeftColumn = 0;
+        } else if (chip.getCol() + 4 > tileArray.length - 1) {
+            this.topLeftColumn = tileArray.length - 9;
+        } else {
+            this.topLeftColumn = chip.getCol() - 4;
+        }
+        if (chip.getRow() - 4 < 0) {
+            this.topLeftRow = 0;
+        } else if (chip.getRow() + 4 > tileArray[0].length - 1) {
+            this.topLeftRow = tileArray[0].length - 9;
+        } else {
+            this.topLeftRow = chip.getRow() - 4;
+        }
+    }
+
+
+    /** This method takes in a tile, the current row, and the current column,
+     * and uses an if statement to decide firstly what type of tile to draw, then what needs to be drawn
+     * on top of the tile if there is anything, then finally it draws Chip
+     *
+     * @param tile - Tile to draw
+     * @param row - row in the output to be drawing at
+     * @param column - column in the output to be drawing at
+     */
+    private void drawTile(Tile tile, int row, int column){
+
+        if(tile instanceof Exit){
+            drawImage("ExitTile", row, column);
+        }
+        else if(tile instanceof FreeTile){
+            drawImage("FreeTile", row, column);
+            Item currentItem = ((FreeTile) tile).getItem();
+
+            if(currentItem instanceof ExitLock){
+                drawImage("ExitLock", row, column);
+            }
+            else if(currentItem instanceof Treasure){
+                drawImage("Treasure", row, column);
+            }
+            else if(currentItem instanceof Key){
+                if(((Key) currentItem).getColour() ==Color.RED){
+                    drawImage("RedKey", row, column);
+                }
+                else if(((Key) currentItem).getColour() ==Color.BLUE){
+                    drawImage("BlueKey", row, column);
+                }
+                else if(((Key) currentItem).getColour() ==Color.GREEN){
+                    drawImage("GreenKey", row, column);
+                }
+                else{
+                    throw new IllegalArgumentException("Invalid key: Colour is not blue, green or red");
+                }
+            }
+        }
+        else if(tile instanceof InfoField){
+            drawImage("InfoField", row, column);
+        }
+        else if(tile instanceof LockedDoor){
+            if(((LockedDoor) tile).getColour() == Color.RED){
+                drawImage("LockedDoorRed", row, column);
+            }
+            else if(((LockedDoor) tile).getColour() == Color.BLUE){
+                drawImage("LockedDoorBlue", row, column);
+            }
+            else if(((LockedDoor) tile).getColour() == Color.GREEN){
+                drawImage("LockedDoorGreen", row, column);
+            }
+            else{
+                throw new IllegalArgumentException("Invalid locked door tile: Colour is not blue, green or red");
+            }
+        }
+        else if(tile instanceof WallTile){
+            drawImage("WallTile", row, column);
+        }
+        if(tile.containsChip()){
+            drawImage("Chip", row, column);
+        }
+    }
+
+    private void drawImage(String imageName, int row, int column){
+        this.graphics.drawImage(this.images.get(imageName), row*this.tileWidth, column*this.tileHeight, this.tileWidth, this.tileHeight, null);
+    }
+}

@@ -1,0 +1,8 @@
+package Maze.Tiles;
+
+public class InfoField extends Tile {
+
+    public String getLetter() {
+        return "I";
+    }
+}

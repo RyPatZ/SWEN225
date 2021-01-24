@@ -1,0 +1,23 @@
+
+First commit is for record and the other two is for replay
+
+Commit 1 : ca54063b
+https://gitlab.ecs.vuw.ac.nz/course-work/swen225/2020/groupproject/team26/chipschallenge/-/commit/ca54063b6ee92316e81ea2f67a5f6b87cb2a1737
+Description: 
+Constructed basic structure for saving the game. Creating a Json object using Json-Sample
+Library and save basic information of the game into the Json object using keyword, 
+Such as movement and steps. And write the Json object which contains game's information
+into the SavedGame/record1.json file created previously .
+
+
+Commit 2 : cd9f33f4
+https://gitlab.ecs.vuw.ac.nz/course-work/swen225/2020/groupproject/team26/chipschallenge/-/commit/cd9f33f4d75c53f9ece12c9128c847dbb1f61f24
+Description:
+Updated Replay class in load() method that transform the Json file to json object 
+And read it from the object. Fixed the previous version's problem that movement reading 
+Issue due to one piece of info can only be saved with one keyword. Save all the infos including movements, level and time into the field. And created upload Board() method that use informations loaded to update the board and return a new board that is updated.
+
+Commit 3 : 8af54ebb
+https://gitlab.ecs.vuw.ac.nz/course-work/swen225/2020/groupproject/team26/chipschallenge/-/commit/8af54ebbbd0ad26a7cba82295e40f8b118042fef
+Description:
+Updated Replay class to deal with the second character in level 2 (The bug). Which read all the movement and position of the bug from the json file. Then update all the movement to the bug with initial position and return a new board that bug's position has been updated.

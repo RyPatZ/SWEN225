@@ -1,0 +1,49 @@
+class Board{
+  Board{
+    gameRunning{
+      doAccusation -> gameOver;
+      
+      Card{
+        isntDisributed{
+          setMurderCards -> murderCard;
+          setHeldCards -> isHeld;
+        }
+        isHeld{}
+        murderCard{}
+      }
+      
+      
+      Tile{
+        tileOccupied{
+          movePlayer -> tileEmpty;
+        }
+        tileEmpty{
+          movePlayer -> tileOccupied;
+          doSuggestion -> tileOccupied;
+        }
+      }
+    
+      
+      Player{
+        Playing{
+          doAccusation -> eliminated;
+          hasTurn{
+            endTurn -> waiting;
+            doSuggestion -> waiting;
+          }
+          waiting{
+            nextTurn -> hasTurn;
+          }
+        }
+        eliminated{
+        }
+      }
+      
+      
+    }
+    gameOver{
+      
+    }
+  
+  }
+}

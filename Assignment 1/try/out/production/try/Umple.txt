@@ -1,0 +1,119 @@
+//Unable to update umple code due to error at null
+//Unable to update umple code due to error at null
+//Unable to update umple code due to error at null
+class Board
+{
+
+ 
+Player playersTurn;
+List murderCards;
+enum dir;
+boolean gameOver;
+List moveTiles;
+List aWeapons;
+List aPlayers;
+List aTiles;
+List aDoors;
+List allCards;
+public boolean movePlayer(Player p,dir d){
+
+}
+  public boolean canMove(Tile t1,Tile t2){}
+  public void takeTurn(Player p){}
+  public void doSuggestion(Player p){}
+  public void doAccusation(Player p){}
+  
+1 -- 600 Tile;
+  1 -- 6 Weapon;
+  1 -- 3..6 Player;
+}
+
+class Weapon
+{
+  Tile position;
+  String name;
+  char piece;
+}
+
+class Tile
+{
+  String name;
+  int xPos;
+int yPos;
+boolean isDoor;
+Player aPlayer;
+Weapon aWeapon;
+1 -- 0..1 Weapon;
+  
+  public boolean canMove(Tile t1,Tile t2){}
+}
+
+class Player
+{
+  String name;
+  Tile position;
+  List hand;
+char piece;
+boolean playing = true;
+int isPlayer;
+  
+  public void addToHand(Card c){}
+
+  1 -- 0..1 Tile;
+}
+
+class Card
+{
+  String name;
+  String type;
+Player aPlayer;
+3..6 -- 0..1 Player;
+}
+
+class Door
+{
+  Tile walkwayTile;
+Tile roomTile;
+2 -- 0..1 Tile;
+}
+
+//$?[End_of_model]$?
+
+class Board
+{
+  position 446 27 156 232;
+  position.association Board__Board:roleName 22,42 0,10;
+  position.association Board__Tile 79,249 74,0;
+  position.association Board__Weapon 0,67 112,19;
+  position.association Board__Player 268,68 0,54;
+}
+
+class Weapon
+{
+  position 145 152 112 113;
+}
+
+class Tile
+{
+  position 486 402 149 164;
+  position.association Tile__Weapon 7,0 112,80;
+}
+
+class Player
+{
+  position 812 111 135 164;
+  position.association Player__Tile 0,107 136,0;
+  position.association Player__Tile 0,71 112,56;
+}
+
+class Card
+{
+  position 824 394 125 113;
+  position.association Card__Player 58,0 69,144;
+}
+
+class Door
+{
+  position 505 681 138 96;
+  position.association Door__Tile 64,0 74,144;
+}

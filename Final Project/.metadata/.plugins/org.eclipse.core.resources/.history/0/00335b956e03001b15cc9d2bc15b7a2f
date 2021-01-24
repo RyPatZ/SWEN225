@@ -1,0 +1,65 @@
+package RecordAndReplay;
+import java.util.Stack;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.*;
+import javax.json.*;
+import Maze.Board;
+import Maze.*;
+
+
+/**
+ * @author Ruiyang Zhang
+ *
+ */
+public class Replay {
+    public Stack<Map<String,String>>  actions = new Stack<>();
+    //public  Stack<String>  movement = new Stack<>();
+    
+    /**
+     * @param path ;
+     * @return movements for replay; 
+     */
+    public static Stack load(String path) {
+        Map<String,String> actionType= new HashMap<>();
+        Stack<String>  movement = new Stack<>();
+        try {
+            boolean fileFound = Files.exists(Paths.get(path));
+            if (fileFound) {
+           FileReader reader = new FileReader(new File(path));
+           JsonReader jsonReader = Json.createReader(reader);
+           JsonObject object = jsonReader.readObject();
+           jsonReader.close();
+           String move;
+           int numOfMove = object.getInt("steps");
+           for(int i=0;i<=numOfMove;i++) {
+           move = object.getString("movement");
+           movement.add(move);
+           }
+            }
+        }
+        catch ( IOException ex) {
+            ex.printStackTrace();
+        }
+        return movement;
+    }
+    
+    public static void upload( Stack move,int replaySpeed) {
+        for(Object s : move) {
+            if(s=="left") {}
+            else if(s=="right") {}
+            else if (s=="up") {}
+            else if(s == "down") {}
+            try {
+                Thread.sleep(replaySpeed);
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            }
+        }
+    }
+

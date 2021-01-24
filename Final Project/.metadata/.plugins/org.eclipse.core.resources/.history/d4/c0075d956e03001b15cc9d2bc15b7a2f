@@ -1,0 +1,6 @@
+package Maze.Tiles;
+
+public class Exit extends Tile{
+
+    public String getLetter(){ return "E"; }
+}

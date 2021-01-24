@@ -1,0 +1,148 @@
+# layout:
+#  - name: Room name
+#  - entity: the postions to show the entitys in the order they should be filled. (12 for each)
+#  - door: the postions of the doors and the direction they should be exited at. [up/right/down/left]
+
+name = Kitchen
+entity = 1 4
+entity = 2 4
+entity = 3 4
+entity = 4 4
+entity = 5 4
+entity = 1 5
+entity = 2 5
+entity = 3 5
+entity = 4 5
+entity = 5 5
+door = 5 7 down
+
+name = Ball Room
+entity = 10 6
+entity = 11 6
+entity = 12 6
+entity = 13 6
+entity = 14 6
+entity = 15 6
+entity = 10 7
+entity = 11 7
+entity = 12 7
+entity = 13 7
+entity = 14 7
+entity = 15 7
+door = 9 6 left
+door = 10 8 down
+door = 15 8 down
+door = 16 6 right
+
+
+name = Conservatory
+entity = 20 5
+entity = 21 5
+entity = 22 5
+entity = 23 5
+entity = 20 4
+entity = 21 4
+entity = 21 4
+entity = 22 4
+entity = 23 4
+entity = 23 3
+entity = 22 3
+entity = 21 3
+door = 19 5 down
+
+
+name = Dining Room
+entity = 1 14
+entity = 2 14
+entity = 3 14
+entity = 4 14
+entity = 5 14
+entity = 6 14
+entity = 1 15
+entity = 2 15
+entity = 3 15
+entity = 4 15
+entity = 5 15
+entity = 6 15
+door = 8 13 right
+door = 7 16 down
+
+
+name = Billiard Room
+entity = 20 12
+entity = 21 12
+entity = 22 12
+entity = 23 12
+entity = 24 12
+entity = 24 11
+entity = 23 11
+entity = 22 11
+entity = 21 11
+entity = 20 11
+entity = 24 10
+entity = 23 10
+door = 19 10 left
+door = 23 13 down
+
+name = Lounge
+entity = 1 23
+entity = 2 23
+entity = 3 23
+entity = 4 23
+entity = 5 23
+entity = 6 23
+entity = 1 24
+entity = 2 24
+entity = 3 24
+entity = 4 24
+entity = 5 24
+entity = 6 24
+door = 7 20 up
+
+name = Hall
+entity = 11 22
+entity = 12 22
+entity = 13 22
+entity = 14 22
+entity = 11 23
+entity = 12 23
+entity = 13 23
+entity = 14 23
+entity = 11 24
+entity = 12 24
+entity = 13 24
+entity = 14 24
+door = 12 19 up
+door = 13 19 up
+door = 15 21 right
+
+name = Study
+entity = 19 24
+entity = 20 24
+entity = 21 24
+entity = 22 24
+entity = 23 24
+entity = 24 24
+entity = 19 25
+entity = 20 25
+entity = 21 25
+entity = 22 25
+entity = 23 25
+entity = 24 25
+door = 18 22 up
+
+name = Library
+entity = 20 18
+entity = 21 18
+entity = 22 18
+entity = 23 18
+entity = 24 17
+entity = 23 17
+entity = 22 17
+entity = 21 17
+entity = 20 17
+entity = 19 17
+entity = 23 16
+entity = 22 16
+door = 21 15 up
+door = 18 17 left

@@ -1,0 +1,20 @@
+package Maze.Items;
+
+/**
+ * Description: <br/>
+ * The item entity that on the Board, such as Chip, ExitLock, Treasure etc
+ * 
+ * @author Oscar Sykes
+ * @version 1.0
+ */
+public interface Item {
+
+    /**
+     * Returns a letter associated with the item This is implemented in the
+     * subclasses
+     * 
+     * @return the letter that represent the Item
+     */
+    public String getLetter();
+
+}

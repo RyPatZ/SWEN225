@@ -1,0 +1,21 @@
+package Maze.Tiles;
+
+import java.awt.*;
+
+public class LockedDoor extends Tile{
+    private Color colour;
+
+    public LockedDoor(Color colour){
+        assert (colour == Color.red || colour == Color.blue || colour == Color.green);
+        this.colour = colour;
+    }
+
+    public Color getColour() { return colour; }
+
+    public String getLetter(){
+        if(colour == Color.red){ return "R"; }
+        if(colour == Color.blue){ return "B"; }
+        if(colour == Color.green){ return "G"; }
+        return null;
+    }
+}

@@ -1,0 +1,33 @@
+package Maze.Tiles;
+
+import Maze.Chip;
+import Maze.Items.Item;
+
+public class Tile {
+    Chip chip;
+
+    public boolean containsChip() {
+        if(chip != null){ return true; }
+        else{ return false; }
+    }
+
+    public void setChip(Chip chip) { this.chip = chip; }
+
+    /*
+            A tile is represented by a letter unless it contains chap in which case it is represented by c
+            FreeTiles are represented by a letter corresponding to an item if it contains any.
+            But this is implemented in its subclass
+            */
+    public String toString(){
+        if(chip != null) return "c";
+        return getLetter();
+    }
+
+    /*
+    Gets the letter associated with each tile. This method is overridden in subclasses
+    */
+    public String getLetter(){
+        assert false; // this should never be reached
+        return null;
+    }
+}

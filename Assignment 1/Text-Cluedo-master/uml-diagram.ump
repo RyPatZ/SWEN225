@@ -1,0 +1,193 @@
+class Board
+{
+  1 -- * Cell;
+  1 -- 9 Room allRooms;
+  1 -- 6 Weapon allWeapons;
+  1 -- 6 Suspect allSuspects;
+}
+
+class Cell
+{
+  int y;
+  int x;
+  1 -- 0..1 Entity item;
+public Boolean isFree(){
+
+}
+public Character[] getChars(){
+
+}
+}
+
+class RoomEntranceCell
+{
+  Direction direction;
+isA Cell;
+}
+
+class EmptyCell
+{
+  isA Cell;
+}
+
+class RoomCell
+{
+  isA Cell;
+}
+
+class Game
+{
+  int currentTurn;
+int gameState;
+1 -- 1 Board;
+  1 -- 3..6 Player players;
+    1 -- 3 Card solution;
+  1 -- 1 GameView;
+}
+
+class Player
+{
+  Boolean hasAccused = false;
+  0..1 -- 1 Suspect;
+  1 -- * Card yourCards;
+}
+
+class Suspect
+{
+  isA Entity;
+  }
+
+class Weapon
+{
+  isA Entity;
+  }
+
+class Room
+{
+   
+  1 -- * RoomCell;
+  1 -- * RoomEntranceCell;
+}
+class Card
+{
+    name;
+  type;
+}
+
+class Entity
+{
+  char[] chars;
+1 -- 1 Card;
+  }
+
+
+
+class WallCell
+{
+  isA Cell;
+}
+
+class View
+{
+}
+
+class MenuView
+{
+  isA View;
+}
+
+class GameView
+{
+  isA View;
+}
+
+class Popup
+{
+}
+
+class Board
+{
+  position 216 102 109 41;
+  position.association Board__Room 58,41 16,0;
+  position.association Board__Cell 22,61 177,0;
+}
+
+class Cell
+{
+  position 91 232 181 129;
+  position.association Cell__Suspect 109,23 0,23;
+  position.association Cell__Entity 109,18 0,41;
+  position.association Cell__Entity 181,40 0,38;
+}
+
+class RoomEntranceCell
+{
+  position 375 446 134 61;
+}
+
+class EmptyCell
+{
+  position 29 448 109 41;
+}
+
+class RoomCell
+{
+  position 204 447 109 41;
+}
+
+class Game
+{
+  position 375 9 109 92;
+  position.association Board__Game 0,16 109,25;
+  position.association Game__Suspect 101,41 3,0;
+  position.association Game__Room 20,41 103,0;
+  position.association Game__Player 109,23 0,7;
+  position.association Game__Player:players 142,20 0,10;
+    position.association Game__Entity 142,87 0,20;
+  position.association Card:solution__Game 130,1 0,10;
+  position.association Game__GameView 32,72 69,0;
+}
+
+class Player
+{
+  position 613 47 166 58;
+  position.association Player__Suspect 90,58 93,0;
+  position.association Card__Player 166,7 0,15;
+  position.association Card:yourCards__Player 166,37 0,43;
+}
+
+class Suspect
+{
+  position 569 286 109 41;
+  }
+
+class Weapon
+{
+  position 864 285 109 41;
+  }
+
+class Room
+{
+  position 361 278 109 41;
+  position.association Room__RoomEntranceCell 66,41 122,0;
+  position.association Room__RoomCell 6,41 107,0;
+}
+
+class Card
+{
+  position 876 23 112 58;
+  position.association Card__Player 7,0 62,41;
+    position.association Card__Entity 65,41 48,0;
+}
+
+class Entity
+{
+  position 811 176 109 58;
+  position.association Card__Entity 78,0 32,72;
+  }
+
+class WallCell
+{
+  position 105 515 109 61;
+}
+

@@ -1,0 +1,6 @@
+package Maze.Tiles;
+
+public class WallTile extends Tile{
+
+    public String getLetter(){ return "W"; }
+}

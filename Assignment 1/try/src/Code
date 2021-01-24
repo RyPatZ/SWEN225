@@ -1,0 +1,75 @@
+class Board
+{
+
+ 
+Player playersTurn;
+List murderCards;
+1 -- 600 Tile;
+  1 -- 6 Weapon;
+  1 -- 3..6 Player;
+}
+
+class Weapon
+{
+  Tile position;
+  String name;
+}
+
+class Tile
+{
+  String name;
+  int xPos;
+int yPos;
+1 -- 0..1 Weapon;
+}
+
+class Player
+{
+  String name;
+  Tile position;
+  Card hand;
+char piece;
+boolean playing = true;
+0..1 -- 1 Tile;
+}
+
+class Card
+{
+  String name;
+  String type;
+  3..6 -- 0..1 Player;
+}
+
+//$?[End_of_model]$?
+
+class Board
+{
+  position 446 27 153 59;
+  position.association Board__Board:roleName 22,42 0,10;
+  position.association Board__Tile 59,76 80,0;
+  position.association Board__Weapon 0,47 112,4;
+  position.association Board__Player 153,65 30,0;
+}
+
+class Weapon
+{
+  position 137 130 112 76;
+}
+
+class Tile
+{
+  position 439 180 112 93;
+  position.association Tile__Weapon 0,25 112,54;
+}
+
+class Player
+{
+  position 667 113 112 110;
+  position.association Player__Tile 0,25 112,14;
+}
+
+class Card
+{
+  position 549 308 112 76;
+  position.association Card__Player 66,0 20,110;
+}

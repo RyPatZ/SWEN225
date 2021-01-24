@@ -1,0 +1,97 @@
+package MonkeyTests;
+
+import static org.junit.Assert.assertFalse;
+
+import org.junit.Test;
+
+import Application.GUI;
+
+/**
+ * Description: <br/>
+ * Tests for the Application Package.
+ * 
+ * Should test the game state like: starting new games, loading/saving
+ * Games(JSON), moving the player, managing the application window(s), etc.
+ * 
+ * 
+ * @author Yun Zhou 300442776
+ * @version
+ */
+public class ApplicationTest {
+
+    /**
+     * Description: <br/>
+     * Test that the instruction String from the file is read successfully.
+     * 
+     * @author Yun Zhou
+     */
+    @Test
+    public void testReadInstruction() {
+        GUI gui = new GUI();
+        assertFalse(gui.readAllLines().isEmpty());
+
+    }
+
+    /**
+     * Description: <br/>
+     * Test that the (RunnableThread timeRuunableThread) is working when a gui
+     * window is made. (p.s. the timeRunnableThread should start once the gui
+     * window is constructed.)
+     * 
+     * @author Yun Zhou
+     */
+    @Test
+    public void testPausingAndResuming() {
+        // GUI gui = new GUI();
+        // gui.pauseAndContinue();
+
+    }
+
+    @Test
+    public void testChipMovementGUI() {
+        // MouseListener[] listener = gui.getMouseListeners();
+        // System.out.println(listener.toString());
+
+    }
+
+    /**
+     * Description: <br/>
+     * Test that whether the GUI window is shown and the Game is start
+     * automatically or not.
+     * 
+     * @author Yun Zhou
+     */
+    @Test
+    public void testApplicationStates() {
+    }
+
+    /**
+     * Test that shortCut keys are working.
+     */
+    @Test
+    public void testKeyPressed() {
+        // GUI gui = new GUI();
+
+    }
+
+    @Test
+    public void testCountDownNumber() {
+
+    }
+
+    @Test
+    public void testNewGame() {
+
+    }
+
+    @Test
+    public void testLoadingGame() {
+
+    }
+
+    @Test
+    public void testSavingGame() {
+
+    }
+
+}

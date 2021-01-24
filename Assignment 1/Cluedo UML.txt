@@ -1,0 +1,129 @@
+class Game{
+  boolean gameOverStatue;
+  1 -- 1 Board;
+  public static void main(String[] args) {}
+}
+
+class Board
+{
+  1 -- * Cell;
+  1 -- 9 Room allRooms;
+  1 -- 6 Weapon allWeapons;
+  1 -- 3..6 Player allPlayerss;
+   1 -- * Card cards;
+  boolean checkAccusation(){};
+  boolean checkSuggestion(){};
+
+  
+  void drawBoard(){}
+}
+
+class Cell
+{
+  String type;
+  int y;
+  int x;
+  boolean isDoor;
+  int getLocationX(){}
+  int getLocationY(){}
+  public Boolean isFree(){}
+}
+
+
+class RoomEntranceCell
+{
+
+Cell cellEntrance;
+Cell cellWalkway;
+}
+
+class Weapon
+{
+  Cell position;
+  String name;
+  boolean isMurderWeapon;
+  
+}
+
+class Room{
+    String name;
+    1 --* Cell;
+    1-- * Player;
+    1-- * Weapon;
+}
+class Player{
+  Boolean hasAccused = false;
+  String name;
+  Cell Position;
+  
+  1 -- 0..1 Cell;
+  1 -- *Card cardInHand;
+  
+  void move(int steps){}
+  void accuse(){}
+  void suggest(){}
+
+}
+
+class Card
+{
+  String name;
+  String type;
+}//$?[End_of_model]$?
+
+namespace -;
+
+
+class Cell
+{
+  position 558 0 166 180;
+  position.association Cell__Weapon 0,165 199,82;
+}
+
+class Room
+{
+  position 423 224 112 78;
+  position.association Cell__Room 109,1 0,180;
+}
+
+class Weapon
+{
+  position 376 440 199 112;
+}
+
+class Player
+{
+  position 3 0 166 163;
+  position.association Card:cardInHand__Player 130,129 1,0;
+}
+
+class RoomEntranceCell
+{
+  position 564 260 153 95;
+}
+
+class Card
+{
+  position 74 371 125 95;
+  position.association Card__Player 0,10 166,102;
+}
+
+class Board
+{
+  position.association Board__Room:allRooms 227,17 0,4;
+  position.association Board__Weapon:allWeapons 159,61 20,0;
+    position.association Board__Cell 200,6 0,10;
+  position.association Board__Player:allPlayerss 8,0 141,163;
+position 128 213 227 112;
+}
+
+class Game
+{
+  position 235 28 227 129;
+  position.association Board__Game 140,129 10,0;
+}
+
+class Board
+{
+  position 128 213 227 112;
+}

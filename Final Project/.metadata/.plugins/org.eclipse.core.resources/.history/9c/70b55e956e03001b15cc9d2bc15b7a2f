@@ -1,0 +1,49 @@
+package Maze.Items;
+
+import java.awt.Color;
+
+/**
+ * Description: <br/>
+ * The Key is an Item and it can be picked up by the Chip(i.e. player) to unlock
+ * the specified LockedDoor.
+ * 
+ * @author Oscar Sykes
+ */
+public class Key implements Item {
+    /**
+     * the colour of the key
+     */
+    private Color colour;
+
+    /**
+     * A constructor. It construct a new instance of Key.
+     *
+     * @param colour
+     *            the colour of the key
+     */
+    public Key(Color colour) {
+        assert (colour == Color.red || colour == Color.blue || colour == Color.green);
+        this.colour = colour;
+    }
+
+    /**
+     * 
+     * Description: <br/>
+     * Return the colour of the key
+     * 
+     * @return the colour of the key
+     */
+    public Color getColour() {
+        return colour;
+    }
+
+    public String getLetter() {
+        if (colour == Color.red)
+            return "r";
+        if (colour == Color.blue)
+            return "b";
+        if (colour == Color.green)
+            return "g";
+        return null;
+    }
+}

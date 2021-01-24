@@ -1,0 +1,2 @@
+repo url: https://gitlab.ecs.vuw.ac.nz/course-work/swen225/2020/groupproject/team26/chipschallenge
+tag to mark: finished_project

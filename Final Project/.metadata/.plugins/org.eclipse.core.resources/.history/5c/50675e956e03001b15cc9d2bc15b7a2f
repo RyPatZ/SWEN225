@@ -1,0 +1,8 @@
+package Maze.Items;
+
+public class ExitLock implements Item {
+
+    public String getLetter() {
+        return "x";
+    }
+}

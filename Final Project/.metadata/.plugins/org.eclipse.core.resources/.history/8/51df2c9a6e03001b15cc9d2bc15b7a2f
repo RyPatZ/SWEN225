@@ -1,0 +1,79 @@
+package Application;
+
+import java.awt.*;
+
+public class RunnableThread implements Runnable{
+        private Thread t;
+        private String threadName;
+        private Graphics g;
+        private int width;
+        private int height;
+        private int second = 0;
+        private boolean pause = false;
+        private GUI gui = null;
+        private boolean started =false;
+
+        public RunnableThread(String name, Graphics g, int wid, int hei, GUI gui) {
+            this.threadName = name;
+            this.g = g;
+            this.width = wid;
+            this.height = hei;
+            this.gui = gui;
+        }
+
+        @Override
+        public void run() {
+            if (this.threadName.equals("GUI")) {
+                new GUI();
+            } else if (this.threadName.equals("Time")) {
+                drawNumber();
+            }
+        }
+        public void drawNumber(){
+            if(this.started == true && this.pause == false && second > 0){
+                second--;
+            }
+            int startX = width / 3 + 4;
+            int startY = height / 10 * 3 + 10;
+            g.setColor(Color.black);
+            Font f = new Font("Font.PLAIN", Font.BOLD, height / 12);
+            g.setFont(f);
+            g.fillRect(startX, startY, width / 3 - 8, height / 10 - 8);
+            g.setColor(Color.green);
+            int stringX = startX + 2*(width / 3 - 8)/3;
+            if(this.second < 10){
+                stringX = startX + (width / 3 - 8)/3 * 2;
+            }else if(this.second >= 10 && this.second < 100){
+                stringX = startX + (width / 3 - 8)/3;
+            }else if(this.second >= 100){
+                stringX = startX + 3;
+            }
+            g.drawString(String.valueOf(second), stringX, startY + height / 10 - 18);
+            if(second == 0){
+                gui.ReplayCurrentLevel();
+            }
+
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+             drawNumber();
+        }
+
+        public int getSecond(){
+            return this.second;
+        }
+        public void setSecond(int i){
+            this.second = i;
+        }
+
+        public void setPause(boolean b){
+            this.pause = b;
+        }
+
+        public void setGameStart(boolean b){this.started = b; }
+}
+
+
+

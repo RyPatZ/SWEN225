@@ -1,0 +1,95 @@
+class Game{
+  gameState{
+    setUpGame{ game {
+      start -> askPlayerNum;
+    }
+    
+    askPlayerNum{
+      askPlayerName ->playerNameInput;
+       lessThanThreePlayer ->game;
+    }
+    playerNameInput {
+      draw ->drawBoard;
+    }    
+              drawBoard{}
+         startGame -> runGame;
+             }
+    
+    
+  
+    runGame{
+    
+    startGame{
+      ->playerTurn;
+    }
+    
+    playerTurn{
+      rollDice -> movement;
+       noMorePlayerCanMakeAccusation -> lost;
+
+  }
+      movement{
+    move{
+      move -> move;
+      ranOutOfMove -> moveFinished;
+    }
+      moveFinished{
+      }
+        
+        playerTurnFinished -> finishedTurn;
+         ifPlayerIsInARoom -> Suggestion;
+      accuse -> Accusation;
+      
+    }
+      Suggestion{
+    Suggest{
+    refute -> refutation;
+    }
+    refutation{
+     
+    }
+         finishedSuggestion -> finishedTurn;
+         
+      }
+      Accusation{
+       
+    Accuse{
+    }
+         correct -> won;
+      incorrect -> playerOffGame;             
+      }
+       playerOffGame{
+        takePlayeroff ->playerTurn;
+      }
+      
+    finishedTurn{
+    nextPlayerTurn ->playerTurn;
+    }
+       won{ won ->endGame;
+    }
+    lost{lost ->endGame;}
+  }
+    
+    endGame{}
+    
+    
+
+   
+  }
+    
+    
+    
+    
+  
+  
+  
+  
+}//$?[End_of_model]$?
+
+namespace -;
+
+
+class Game
+{
+  position 50 30 109 45;
+}

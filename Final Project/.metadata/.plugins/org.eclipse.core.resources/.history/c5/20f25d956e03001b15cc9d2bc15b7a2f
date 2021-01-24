@@ -1,0 +1,265 @@
+package Maze;
+
+import java.awt.Color;
+
+import Maze.Items.*;
+import Maze.Tiles.Exit;
+import Maze.Tiles.FreeTile;
+import Maze.Tiles.InfoField;
+import Maze.Tiles.LockedDoor;
+import Maze.Tiles.Tile;
+import Maze.Tiles.WallTile;
+import Persistance.JsonParser;
+
+/**
+ * It represent the game Board.
+ * 
+ * @author Oscar Sykes
+ */
+public class Board {
+    /** the 2d map */
+    private Tile[][] tiles;
+
+    /**
+     * the character that is controlled by the player
+     */
+    private Chip chip;
+
+    /**
+     * the remaining treasures in the current level
+     */
+    private int treasureRemaining;
+
+    /**
+     * width and height of the total maze
+     */
+    private int boardWidth, boardHeight;
+
+    private boolean levelFinished;
+
+    private boolean onInfo;
+
+    /**
+     * this is a modified 9x9 version of level one to test out the maze package
+     */
+    public static final String LEVEL_ONE = "FTFWEWFTF" +
+                                           "WWBWxWBWW" +
+                                           "FBFFFFFRF" +
+                                           "FWbFIFrWF" +
+                                           "WWTFCFTWW" +
+                                           "FWbFFFrWF" +
+                                           "FRFFTFFBF" +
+                                           "WWFFFFFWW" +
+                                           "FWFFWFFWF";
+
+    /**
+    * Temporay constructor for text based version
+     */
+    public Board(int boardWidth, int boardHeight) {
+        this.boardWidth = boardWidth;
+        this.boardHeight = boardHeight;
+        tiles = new Tile[boardHeight][boardWidth];
+        treasureRemaining = 0;
+        levelFinished = false;
+        onInfo = false;
+        makeBoard();
+    }
+
+    /**
+     * Creates the tile array using the Persistance module
+     * @param levelName name of the level the user wants to play
+     */
+    public Board(String levelName){
+        assert (levelName.equals("0") || levelName.equals("1") || levelName.equals("2"));
+        treasureRemaining = 0;
+        levelFinished = false;
+        onInfo = false;
+        tiles = JsonParser.getLvl(levelName);
+    }
+
+    /**
+     * Creates an returns a copy of the tile array for encapsulation
+     * @return tiles
+     */
+    public Tile[][] getTileArray() {
+        Tile[][] tilesCopy = new Tile[tiles.length][tiles[0].length];
+        for(int i = 0; i < tiles.length; i++){
+            for(int j = 0; j < tiles[0].length; j++){
+                tilesCopy[i][j] = tiles[i][j];
+            }
+        }
+        return tilesCopy;
+    }
+
+    /**
+     * Get the chip.
+     *
+     * @return the chip
+     */
+    public final Chip getChip() {
+        return chip;
+    }
+
+    public int getTreasureRemaining() { return treasureRemaining; }
+
+    public boolean isLevelFinished() { return levelFinished; }
+
+    public boolean getOnInfo() { return onInfo; }
+
+    /**
+     * Updates chip's position in its object Takes chip out of item field of old
+     * tile and puts it in item field of new tile Removes any item in new tile
+     * 
+     * @param dir
+     *            direction to move chap in (left, right, up, down)
+     * @return whether or not the level is completed
+     */
+    public boolean moveChip(String dir) {
+        // check valid direction
+        assert (dir.equals("left") || dir.equals("right") || dir.equals("up")
+                || dir.equals("down"));
+        if(levelFinished){ return false; } // don't allow players to move once level is finished
+        if(chip == null){ return false; }
+
+        int row = chip.getRow();
+        int col = chip.getCol();
+
+        // can't move in this direction
+        if ((dir.equals("left") && col == 0) || (dir.equals("right") && col == boardWidth - 1) ||
+                (dir.equals("up") && row == 0) || (dir.equals("down") && row == boardHeight - 1)) {
+            return false;
+        }
+        int newRow = row;
+        int newCol = col;
+        if (dir.equals("left")) { newCol = col - 1; }
+        else if (dir.equals("right")) { newCol = col + 1; }
+        else if (dir.equals("up")) { newRow = row - 1; }
+        else if (dir.equals("down")) { newRow = row + 1; }
+        Tile oldTile = tiles[row][col];
+        Tile newTile = tiles[newRow][newCol];
+
+        // check that they are moving to a valid tile
+        onInfo = false;
+        if (newTile instanceof FreeTile) {
+            Item item = ((FreeTile) newTile).getItem();
+            if (item instanceof ExitLock && treasureRemaining > 0)
+                return false;
+            if (item instanceof Key)
+                chip.addKey((Key) item);
+            if (item instanceof Treasure)
+                treasureRemaining--;
+            ((FreeTile) newTile).setItem(null);
+        } else if (newTile instanceof LockedDoor) {
+            if (!chip.containsKey(((LockedDoor) newTile).getColour())){ return false; }
+            chip.removeKey(((LockedDoor) newTile).getColour());
+            // if you can open a locked door it turns into a free tile
+            tiles[newRow][newCol] = new FreeTile();
+            newTile = tiles[newRow][newCol]; // update pointer
+        } else if (newTile instanceof Exit) {
+            levelFinished = true;
+        } else if (newTile instanceof WallTile) {
+            return false; // can't move to the WallTile
+        } else if (newTile instanceof InfoField){
+            onInfo = true;
+        }else{
+            assert false; // no other possible square types to move to
+        }
+
+        // move chip
+        oldTile.setChip(null);
+        newTile.setChip(chip);
+        chip.setRow(newRow);
+        chip.setCol(newCol);
+        return true;
+    }
+
+    /**
+     * This method is used to allow the user to move by clicking the board. It
+     * checks if the tile pressed is one tile away from chips current tile and
+     * if so calls the move chip method.
+     * 
+     * @param row
+     *            row of the tile that the user clicked
+     * @param col
+     *            column of the tile the user clicked
+     * @return true if the movement is success
+     */
+    public boolean moveByMouse(int row, int col) {
+        if(row > 0 && row >= boardHeight && col < 0 && col >= boardWidth){
+            return false;
+        }
+        int dy = row - chip.getRow();
+        int dx = col - chip.getCol();
+        if(!((Math.abs(dx) == 1 && Math.abs(dy) == 0) || (Math.abs(dx) == 0 && Math.abs(dy) == 1))){
+            return false;
+        }
+        String dir = null;
+        if (dx == -1) { dir = "left"; }
+        else if (dx == 1) { dir = "right"; }
+        else if (dy == -1) { dir = "up"; }
+        else if (dy == 1) { dir = "down"; }
+        assert dir != null;
+        return moveChip(dir);
+    }
+
+    /**
+     * Construct a board from string (this might be a temporary method depending
+     * on what Persistance does)
+     */
+    public void makeBoard() {
+        for (int i = 0; i < boardHeight; i++) {
+            for (int j = 0; j < boardWidth; j++) {
+                char c = LEVEL_ONE.charAt(i * boardWidth + j);
+                // tiles
+                if (c == 'W')
+                    tiles[i][j] = new WallTile();
+                else if (c == 'I')
+                    tiles[i][j] = new InfoField();
+                else if (c == 'R')
+                    tiles[i][j] = new LockedDoor(Color.red);
+                else if (c == 'G')
+                    tiles[i][j] = new LockedDoor(Color.green);
+                else if (c == 'B')
+                    tiles[i][j] = new LockedDoor(Color.blue);
+                else if (c == 'E')
+                    tiles[i][j] = new Exit();
+                else {
+                    // items
+                    tiles[i][j] = new FreeTile();
+                    FreeTile tile = (FreeTile) tiles[i][j];
+                    if (c == 'r')
+                        tile.setItem(new Key(Color.red));
+                    else if (c == 'g')
+                        tile.setItem(new Key(Color.green));
+                    else if (c == 'b')
+                        tile.setItem(new Key(Color.blue));
+                    else if (c == 'T') {
+                        treasureRemaining++;
+                        tile.setItem(new Treasure());
+                    } else if (c == 'x')
+                        tile.setItem(new ExitLock());
+                    else if (c == 'C') {
+                        assert chip == null; // check that there aren't multiple chips
+                        chip = new Chip(i, j);
+                        tile.setChip(chip);
+                    } else if (c != 'F')
+                        assert false; // no other possible characters
+                }
+            }
+        }
+        assert chip != null; // check that chip exists
+    }
+
+    public String toString() {
+        String string = "";
+        for (int i = 0; i < boardHeight; i++) {
+            string += "|";
+            for (int j = 0; j < boardWidth; j++) {
+                string += tiles[i][j].toString() + "|";
+            }
+            string += "\n";
+        }
+        return string;
+
+    }
+}

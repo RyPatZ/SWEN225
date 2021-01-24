@@ -1,0 +1,133 @@
+[
+  {
+    "name": "Game",
+    "superclasses": "",
+    "subclasses": "",
+    "type": 1,
+    "responsibilities": [
+      "setup and initializes",
+      "",
+      "check accusation",
+      "check suggestion",
+      "know the status of the game "
+    ],
+    "collaborators": [
+      "Board, Player",
+      "",
+      "Card",
+      "Card, Player",
+      "board"
+    ]
+  },
+  {
+    "name": "Board",
+    "superclasses": "",
+    "subclasses": "",
+    "type": 1,
+    "responsibilities": [
+      "Aggregate the location of Cells",
+      "Move Players",
+      "draw the game map of the board"
+    ],
+    "collaborators": [
+      "Cell",
+      "Cell,Player",
+      "Cell"
+    ]
+  },
+  {
+    "name": "Cell",
+    "superclasses": "RoomEntranceCell",
+    "subclasses": "",
+    "type": 1,
+    "responsibilities": [
+      "Knows positions ",
+      "Knows type"
+    ],
+    "collaborators": [
+      "Coordinate",
+      "Player,Weapon,Room"
+    ]
+  },
+  {
+    "name": "RoomEntranceCell",
+    "superclasses": "Cell",
+    "subclasses": "",
+    "type": 1,
+    "responsibilities": [
+      "Knows RoomEntranceCell Position",
+      "Know WalkwayEntranceCell Position"
+    ],
+    "collaborators": [
+      "Coordinate, Cell",
+      "Coordinate, Cell"
+    ]
+  },
+  {
+    "name": "Weapon",
+    "superclasses": "",
+    "subclasses": "",
+    "type": 1,
+    "responsibilities": [
+      "knows positions ",
+      "knows whether it's a murder weapon",
+      "knows the name of Weapon",
+      "",
+      ""
+    ],
+    "collaborators": [
+      "Location",
+      "Status",
+      "String"
+    ]
+  },
+  {
+    "name": "Player",
+    "superclasses": "",
+    "subclasses": "",
+    "type": 1,
+    "responsibilities": [
+      "knows position",
+      "knows the name of Character ",
+      "accuse",
+      "suggest"
+    ],
+    "collaborators": [
+      "Location",
+      "String",
+      "Game, Player,Card",
+      "Room, Game, Card",
+      ""
+    ]
+  },
+  {
+    "name": "Room",
+    "superclasses": "",
+    "subclasses": "",
+    "type": 1,
+    "responsibilities": [
+      "Knows name",
+      "Knows Player inside room",
+      "Knows Weapon inside room"
+    ],
+    "collaborators": [
+      "String",
+      "Player",
+      "Weapon"
+    ]
+  },
+  {
+    "name": "Card",
+    "superclasses": "",
+    "subclasses": "",
+    "type": 1,
+    "responsibilities": [
+      "Know name",
+      "Know Type"
+    ],
+    "collaborators": [
+      "String",
+      "Player,Weapon,Room"
+    ]
+  }
+]

@@ -1,0 +1,7 @@
+# 'X' = You cant move there
+# '.' = You can move there
+# ignore the spaces
+
+. . X
+X X X
+X X X

@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8b332741-01f4-4422-9c16-408233af0b9c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/RunnableThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/RunnableThread.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1hlBsfFzqIp32VQG0r0ft2qCvmz" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="ignore.virus.scanning.warn.message" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$/d/chipschallenge" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\osyke\Desktop\Coding\225-assignments\chipschallenge" />
+      <recent name="C:\Users\osyke\Desktop\Coding\225-assignments\chipschallenge\.idea" />
+      <recent name="C:\Users\osyke\Desktop\Coding\225-assignments\chipschallenge\assets" />
+      <recent name="C:\Users\osyke\Desktop\Coding\225-assignments\chipschallenge\lib" />
+      <recent name="C:\Users\osyke\Desktop\Coding\225-assignments\chipschallenge\lib\org" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Board" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Maze.Board" />
+      <module name="chipschallenge" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Maze.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Application.GUI" />
+      <module name="chipschallenge" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Application.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Application.Main" />
+      <module name="chipschallenge" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Application.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MazeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="chipschallenge" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="MonkeyTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="MonkeyTests" />
+      <option name="MAIN_CLASS_NAME" value="MonkeyTests.MazeTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MazeTest.testBoundsMovementNorth" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="chipschallenge" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="MonkeyTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="MonkeyTests" />
+      <option name="MAIN_CLASS_NAME" value="MonkeyTests.MazeTest" />
+      <option name="METHOD_NAME" value="testBoundsMovementNorth" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Board" />
+      <item itemvalue="Application.GUI" />
+      <item itemvalue="Application.Main" />
+      <item itemvalue="JUnit.MazeTest" />
+      <item itemvalue="JUnit.MazeTest.testBoundsMovementNorth" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.MazeTest" />
+        <item itemvalue="JUnit.MazeTest.testBoundsMovementNorth" />
+        <item itemvalue="Application.Board" />
+        <item itemvalue="Application.GUI" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8b332741-01f4-4422-9c16-408233af0b9c" name="Default Changelist" comment="" />
+      <created>1600576006290</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1600576006290</updated>
+      <workItem from="1600576014519" duration="3739000" />
+      <workItem from="1600581107908" duration="3599000" />
+      <workItem from="1600669302203" duration="690000" />
+      <workItem from="1600729090662" duration="1226000" />
+      <workItem from="1600739632806" duration="3199000" />
+      <workItem from="1601251413118" duration="851000" />
+      <workItem from="1601276470379" duration="2798000" />
+      <workItem from="1601421157443" duration="1918000" />
+      <workItem from="1601423117048" duration="9079000" />
+      <workItem from="1601444065597" duration="106000" />
+      <workItem from="1601461498927" duration="4578000" />
+      <workItem from="1601466462452" duration="7327000" />
+    </task>
+    <task id="LOCAL-00001" summary="fixes#17">
+      <created>1601461869520</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1601461869520</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Allows to go to next level when the chip arrives on a exit tile.">
+      <created>1601465886721</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1601465886721</updated>
+    </task>
+    <task id="LOCAL-00003" summary="KeyListener fixed: KeyListener works fine after clicking;&#10;Can go to the next level when passing level 1;&#10;Replay current game when time out;">
+      <created>1601471012571</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1601471012571</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Added &quot;Cancel&quot; function for the game:&#10;When the player starts a new game or wants to end the current game while a game is running, it allows to cancel (by clicking &quot;Cancel&quot; button) and continue the current game.">
+      <created>1601472312407</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1601472312407</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Add some comments for the new methods.">
+      <created>1601473065871</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1601473065871</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Fixes a bug when starting a new game.">
+      <created>1601503604685</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1601503604685</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fixes#17" />
+    <MESSAGE value="Allows to go to next level when the chip arrives on a exit tile." />
+    <MESSAGE value="KeyListener fixed: KeyListener works fine after clicking;&#10;Can go to the next level when passing level 1;&#10;Replay current game when time out;" />
+    <MESSAGE value="Added &quot;Cancel&quot; function for the game:&#10;When the player starts a new game or wants to end the current game while a game is running, it allows to cancel (by clicking &quot;Cancel&quot; button) and continue the current game." />
+    <MESSAGE value="Made some comments for the new methods." />
+    <MESSAGE value="Add some comments for the new methods." />
+    <MESSAGE value="Fixes a bug when starting a new game." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixes a bug when starting a new game." />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601438572710">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1601438572710" />
+    <state x="715" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1600576643345">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="715" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1600576643345" />
+    <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser" timestamp="1601424914999">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1601424914999" />
+    <state x="167" y="171" key="CommitChangelistDialog2" timestamp="1601503604561">
+      <screen x="0" y="23" width="1792" height="1004" />
+    </state>
+    <state x="477" y="165" key="CommitChangelistDialog2/0.0.1792.1120@0.0.1792.1120" timestamp="1601465886593" />
+    <state x="167" y="171" key="CommitChangelistDialog2/0.23.1792.1004@0.23.1792.1004" timestamp="1601503604561" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1601444171530">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1601444171530" />
+    <state width="1308" height="111" key="GridCell.Tab.0.bottom" timestamp="1601503532623">
+      <screen x="0" y="23" width="1792" height="1004" />
+    </state>
+    <state width="1308" height="310" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1601467388651" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1601443919709" />
+    <state width="1308" height="111" key="GridCell.Tab.0.bottom/0.23.1792.1004@0.23.1792.1004" timestamp="1601503532623" />
+    <state width="1308" height="111" key="GridCell.Tab.0.center" timestamp="1601503532622">
+      <screen x="0" y="23" width="1792" height="1004" />
+    </state>
+    <state width="1308" height="310" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1601467388649" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1601443919708" />
+    <state width="1308" height="111" key="GridCell.Tab.0.center/0.23.1792.1004@0.23.1792.1004" timestamp="1601503532622" />
+    <state width="1308" height="111" key="GridCell.Tab.0.left" timestamp="1601503532621">
+      <screen x="0" y="23" width="1792" height="1004" />
+    </state>
+    <state width="1308" height="310" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1601467388648" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1601443919708" />
+    <state width="1308" height="111" key="GridCell.Tab.0.left/0.23.1792.1004@0.23.1792.1004" timestamp="1601503532621" />
+    <state width="1308" height="111" key="GridCell.Tab.0.right" timestamp="1601503532622">
+      <screen x="0" y="23" width="1792" height="1004" />
+    </state>
+    <state width="1308" height="310" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1601467388650" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1601443919708" />
+    <state width="1308" height="111" key="GridCell.Tab.0.right/0.23.1792.1004@0.23.1792.1004" timestamp="1601503532622" />
+    <state x="461" y="165" key="SettingsEditor" timestamp="1601442694415">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1601442694415" />
+    <state x="496" y="293" key="Vcs.Push.Dialog.v2" timestamp="1601503629147">
+      <screen x="0" y="23" width="1792" height="1004" />
+    </state>
+    <state x="496" y="301" key="Vcs.Push.Dialog.v2/0.0.1792.1120@0.0.1792.1120" timestamp="1601465915183" />
+    <state x="496" y="293" key="Vcs.Push.Dialog.v2/0.23.1792.1004@0.23.1792.1004" timestamp="1601503629147" />
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1600578713652">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1600578713652" />
+    <state x="664" y="412" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1601252246113">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="664" y="412" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1920.1040@0.0.1920.1040" timestamp="1601252246113" />
+    <state x="342" y="140" key="new project wizard" timestamp="1601443857883">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="342" y="140" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1601443857883" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1601438831738">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1601438831738" />
+  </component>
+</project>

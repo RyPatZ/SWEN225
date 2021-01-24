@@ -1,0 +1,8 @@
+package Application;
+
+public class Main {
+    public static void main(String[] args) {
+        new Thread(new RunnableThread("GUI", null, 0, 0, null)).start();
+    }
+
+}

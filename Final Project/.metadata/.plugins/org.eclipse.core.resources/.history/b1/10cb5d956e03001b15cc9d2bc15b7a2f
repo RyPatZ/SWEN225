@@ -1,0 +1,60 @@
+package Maze;
+
+import java.awt.Color;
+import java.util.ArrayList;
+import java.util.List;
+
+import Maze.Items.Item;
+import Maze.Items.Key;
+
+public class Chip{
+    private int row;
+
+    private int col;
+
+    private List<Key> keys;
+
+    public Chip(int row, int col) {
+        this.row = row;
+        this.col = col;
+        this.keys = new ArrayList<>();
+    }
+
+    public int getRow() {
+        return row;
+    }
+
+    public void setRow(int row) {
+        this.row = row;
+    }
+
+    public int getCol() {
+        return col;
+    }
+
+    public void setCol(int col) {
+        this.col = col;
+    }
+
+    public void addKey(Key key) {
+        this.keys.add(key);
+    }
+
+    public boolean containsKey(Color colour) {
+        for (Key key : keys) {
+            if (key.getColour() == colour)
+                return true;
+        }
+        return false;
+    }
+
+    public void removeKey(Color colour) {
+        for (int i = 0; i < keys.size(); i++) {
+            if (keys.get(i).getColour() == colour) {
+                keys.remove(keys.get(i));
+            }
+        }
+    }
+
+    public List<Key> getKeys() { return keys; }
+}

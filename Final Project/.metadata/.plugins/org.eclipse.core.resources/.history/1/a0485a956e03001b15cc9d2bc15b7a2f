@@ -1,0 +1,15 @@
+module chipschallenge {
+	exports Maze.Items;
+	exports Render;
+	exports MonkeyTests;
+	exports RecordAndReplay;
+	exports Maze;
+	exports Application;
+	exports Persistance;
+	exports Maze.Tiles;
+
+	requires java.desktop;
+    requires java.json;
+	requires junit;
+	requires org.junit.jupiter.api;
+}

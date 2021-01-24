@@ -1,0 +1,8 @@
+# X Y initials
+
+8 25 MS
+1 18 CM
+10 1 MW
+15 1 MG
+24 7 MP
+24 20 PP

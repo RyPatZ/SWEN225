@@ -1,0 +1,7 @@
+name = testRoom
+entity = 3 3
+entity = 4 3
+entity = 3 4
+entity = 4 4
+door = 2 3 left
+door = 5 4 right

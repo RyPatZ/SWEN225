@@ -1,0 +1,30 @@
+package RecordAndReplay;
+
+import javax.json.*;
+import java.util.*;
+
+/**
+ * @author Ruiyang Zhang
+ *
+ */
+@SuppressWarnings("unused")
+public class RecordGame {
+    /**
+     * Stack to store actions taken by player;
+     */
+    public static Stack<String>  actions = new Stack<>();
+    /**
+     * write actions recorded into a JSON object
+     */
+    public static void write() {
+        JsonObject obj =  Json.createObjectBuilder().build();
+        
+    }
+    
+    /**
+     * @param s
+     */
+    public static void recordAction(String s) {
+        actions.add(s);
+    }
+}
